@@ -45,4 +45,26 @@ describe('Divide function', () => {
         //Easier way to write the code above: 
         //expect(() => { divide(8, 0) }).to.throw();
     })
+
+    it('equal assertion test case', () => {
+        expect(2).to.equal(2, '2 === 2'); // pass
+        expect(2).to.equal("2", '2 === "2"'); // fail, wrong types
+        expect(2).to.equal(3, '2 === 3'); // fail, wrong values
+        expect('hen').to.equal('Hen', "'hen' == 'Hen'"); // fail, string comparison is case sensitive
+        expect(3).to.equal(3, '3 === 3') //pass
+        expect('rooster').to.equal('rooster', 'rooster === rooster') //pass
+    })
+
+    it('deep assertion test case', () => {
+        //we have 2 objects that both contain a single property x with the value of 5
+        //Essentially these 2 object are the same => so we'd expect them to be equal => but it fails
+        //Reason: Objects & arrays behave differently in JS than primitive values like #s & booleans
+        //Essentially we're asking: is var a & var b reffering to the same object
+        //Even though a & b look the same => they're 2 different objects that just happen to have the same props & values
+        //Solution: Using a deep-equal =>  "Do those two variables have the same value"?
+        const a = { x: 5 };
+        const b = { x: 5 };
+        //expect(a).to.equal(b);
+        expect(a).to.deep.equal(b); //using deep-equal instead => pass
+    })
 })

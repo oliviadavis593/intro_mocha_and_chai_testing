@@ -34,4 +34,10 @@ describe('Array diff', () => {
         //Using .eql:
         //expect(diff([1,2,3], [2])).to.eql([1,3]);
     })
+
+    //We assert that the result includes 2 & 3
+    //Or we can assert that it doesn't include 1 like so: 
+    it('should remove 1 from [1, 2, 3]', () => {
+        expect(diff([1, 2, 3], [1])).to.not.include(1);
+    })
 }) 

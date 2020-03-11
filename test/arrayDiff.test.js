@@ -30,9 +30,9 @@ describe('Array diff', () => {
     })
 
     it('should return correctly if some elements are removed', () => {
-        expect(diff([1,2,3], [2])).to.deep.equal([1,3]);
-        //Using .eql:
-        //expect(diff([1,2,3], [2])).to.eql([1,3]);
+        //Using .eql instead of equal:
+        expect(diff([1,2,3], [2])).to.eql([1,3]);
+        //expect(diff([1,2,3], [2])).to.deep.equal([1,3]);
     })
 
     //We assert that the result includes 2 & 3
@@ -41,3 +41,5 @@ describe('Array diff', () => {
         expect(diff([1, 2, 3], [1])).to.not.include(1);
     })
 }) 
+
+//We've used the following assertions: .equal, .eql, .not

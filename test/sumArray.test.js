@@ -34,13 +34,16 @@ describe('Array sum', () => {
 
     //Now that we've added arithmetic addition inside sumArray.js
     //We can now implement this test 
-    it('should sum an array of number & non-numeric strings', () => {
-        return sum(1, '2', '3', 'a')
-            .then(ans => {
-                //since the type of return value is questionable 
-                //We can include such a check in the test with the .a function
-                expect(ans).to.be.a('number').that.equal(6);
-                //expect(ans).to.equal(6);
-            })
-    })
+    it('should sum an array of numbers and non-numeric strings', () => {
+        return sum([1,'2',3, 'a'])
+          .then(ans => {
+            //since the type of return value is questionable 
+            //We can include such a check in the test with the .a function
+            expect(ans).to.be.a('number').that.equal(6);
+            //expect(ans).to.equal(6);
+          });
+      });
   });
+
+  
+                
